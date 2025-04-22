@@ -1,0 +1,590 @@
+/* Custom Font Definition */
+@font-face {
+    font-family: 'DistilleryStrong';
+    /* Make sure this path is correct relative to your CSS file */
+    /* Example: Assumes CSS is in root, fonts in 'fonts' subfolder */
+    src: url('fonts/DistilleryStrong.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* --- Variables --- */
+:root {
+    --primary-color: #7b1252; /* Primary Color (Dark Magenta/Purple) */
+    --secondary-color: #2ECC71; /* Green accent */
+    --whatsapp-green: #25D366; /* WhatsApp color */
+    --dark-color: #2C3E50; /* Dark blue/grey */
+    --light-color: #ECF0F1; /* Light grey */
+    --white-color: #FFFFFF;
+    --text-color: #34495E; /* Darker grey for text */
+    --footer-bg: #2C3E50;
+    --card-bg: var(--white-color); /* Card background set to white */
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Default font */
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    border: none;
+    outline: none;
+}
+
+html {
+    font-size: 16px; /* Base font size */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    background-color: var(--light-color); /* Main background */
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+section {
+    padding: 80px 7%; /* Vertical and horizontal padding */
+    text-align: center;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below images */
+}
+
+/* --- Header --- */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Keeps logo left, nav right */
+    align-items: center;
+    padding: 15px 7%;
+    background: var(--white-color);   /* White background for header */
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+/* Styling for the text logo in header */
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    /* Use custom font */
+    font-family:'DistilleryStrong', 'Poppins', sans-serif; /* Added Poppins fallback */
+}
+
+
+.navbar a {
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active { /* Add 'active' class via JS if needed */
+    color: var(--primary-color);
+}
+
+#menu-icon {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    cursor: pointer;
+    display: none; /* Hidden by default, shown on mobile */
+}
+
+/* --- Button Styles --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, transform 0.2s ease, filter 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Hover effect uses a calculated darker shade of primary */
+.btn:hover {
+    filter: brightness(85%);
+    transform: scale(1.05);
+}
+
+/* --- Hero Section --- */
+.home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+    gap: 2rem;
+    /* Background image and color */
+    /* ** Ensure 'images/9363102.jpg' path is correct ** */
+    background-image:url(images/9363102.jpg);
+    background-color: var(--light-color); /* Fallback color */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: left; /* Override section default */
+    padding-top: 200px; /* Increased padding */
+    padding-bottom: 80px; /* Added padding at bottom */
+    position: relative; /* For potential overlay */
+}
+
+/* Optional: Add an overlay for better text contrast over image */
+/* .home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(236, 240, 241, 0.6); /* Adjust light color opacity */
+    /* z-index: 1;
+} */
+
+.home-content, .logo-img {
+    position: relative; /* Ensure content is above overlay if used */
+    z-index: 2;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-family:'DistilleryStrong', 'Poppins', sans-serif; /* Added Poppins fallback */
+}
+
+.home-content h1 span {
+    color: var(--primary-color);
+    display: block; /* Makes "Welcome To" stack */
+    font-size: 4rem; /* Increased size */
+    font-weight: 500; /* Normal weight might be better for Distillery */
+    font-family:'DistilleryStrong', 'Poppins', sans-serif; /* Added Poppins fallback */
+}
+
+.home-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.home-content p {
+    font-size: 1rem;
+    font-weight: 450; /* Specific weight */
+    margin-bottom: 30px;
+}
+
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    margin-bottom: 20px; /* Spacing */
+    text-align: center;
+    line-height: 40px; /* Center icon vertically */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Styling for the logo container on the right of Hero */
+.logo-img {
+    position: relative;
+    max-width: 400px; /* Limit container size */
+    margin: 0 auto; /* Center if grid column is wider */
+    padding: 20px; /* Add some padding around the logo */
+}
+
+/* Styling for the circular logo image in Hero */
+.logo-img img {
+    width: 100%; /* Make image responsive within container */
+    max-width: 350px; /* Max size of the logo itself */
+    height: auto; /* Maintain aspect ratio initially */
+    aspect-ratio: 1 / 1; /* Force a square aspect ratio */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Cover the square area, cropping if needed */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    margin: 0 auto; /* Center the image if container is wider */
+    display: block;
+    border: 4px solid var(--white-color); /* Optional white border */
+}
+
+
+/* --- About Us Section --- */
+.about {
+    background-color: var(--white-color); /* Keeps this section distinct */
+}
+
+.about p {
+    max-width: 800px; /* Limit text width for readability */
+    margin: 0 auto 30px auto; /* Center the paragraph block */
+    text-align: center;
+}
+
+.location {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    display: inline-block; /* Size to content */
+    box-shadow: var(--shadow);
+}
+
+.location h3 {
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.location p {
+    margin-bottom: 15px;
+}
+
+.map-link {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color 0.3s ease, filter 0.3s ease;
+}
+
+.map-link i {
+    font-size: 1.2rem;
+}
+
+.map-link:hover {
+    filter: brightness(85%);
+}
+
+
+/* --- Products Section (Cards) --- */
+.products {
+    background-color: var(--light-color); /* Matches body background */
+}
+
+.products h2.section-title {
+    margin-bottom: 15px; /* Less space between title and first card row */
+}
+
+.products h2.section-title:nth-of-type(2) { /* Style second title "Legit Bites" */
+    margin-top: 60px; /* Add space before the second category */
+    margin-bottom: 15px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 25px; /* Space between cards */
+    justify-content: center; /* Center grid items if they don't fill the row */
+    margin-top: 30px;
+}
+
+.card {
+    background-color: var(--card-bg); /* Should be white */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Keep image corners rounded */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Stack image and content */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, cropping if needed */
+    border-radius: 0; /* Ensure card images are not circular */
+    aspect-ratio: auto; /* Reset aspect ratio for card images */
+
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1; /* Allow content to fill space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push title up, description down */
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    flex-grow: 1; /* Takes up remaining space */
+}
+
+/* --- Contact Section --- */
+.contacts {
+    background-color: var(--white-color); /* Keeps this section distinct */
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Changed to equal columns */
+    gap: 40px;
+    align-items: center; /* Vertically align items in the middle */
+    max-width: 1100px;
+    margin: 0 auto; /* Center the container */
+    text-align: left; /* Override section default */
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.contact-info .social-icons a {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+.contact-info .social-icons a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Styles for WhatsApp Contact Area */
+.whatsapp-contact {
+    text-align: center; /* Center content */
+    padding: 30px 20px; /* More padding */
+    background-color: var(--light-color); /* Optional background */
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow); /* Add shadow */
+}
+
+.whatsapp-contact h3 {
+    font-size: 1.6rem; /* Slightly smaller than info */
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.whatsapp-contact p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.whatsapp-btn {
+    display: inline-flex; /* Align icon and text nicely */
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 15px 35px; /* Larger padding */
+    background-color: var(--whatsapp-green);
+    color: var(--white-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px; /* More rounded button */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none; /* Ensure link is not underlined */
+}
+
+.whatsapp-btn i {
+    font-size: 1.5rem; /* Larger WhatsApp icon */
+}
+
+.whatsapp-btn:hover {
+    background-color: #1ebe57; /* Slightly darker WhatsApp green */
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--light-color);
+    text-align: center;
+    padding: 20px 7%;
+    font-size: 0.9rem;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-in {
+    animation: slideIn 1s ease-out forwards;
+}
+
+/* Apply pop-in animation to cards */
+.animate-pop-in {
+    opacity: 0; /* Start hidden */
+    animation: popIn 0.6s ease-out forwards;
+}
+
+/* Stagger card animations */
+.card-container .card:nth-child(1) { animation-delay: 0.1s; }
+.card-container .card:nth-child(2) { animation-delay: 0.2s; }
+.card-container .card:nth-child(3) { animation-delay: 0.3s; }
+.card-container .card:nth-child(4) { animation-delay: 0.4s; }
+.card-container .card:nth-child(5) { animation-delay: 0.5s; }
+.card-container .card:nth-child(6) { animation-delay: 0.6s; }
+/* Add more if needed */
+
+
+/* --- Responsiveness (Media Queries) --- */
+
+/* Tablets and Larger Phones */
+@media (max-width: 992px) {
+    html { font-size: 15px; }
+    section { padding: 60px 5%; }
+    .home { grid-template-columns: 1fr; text-align: center; min-height: auto; padding-bottom: 60px; padding-top: 150px;} /* Adjust hero padding */
+    .home-content { order: 1; max-width: 100%; text-align: center;}
+    .logo-img { order: 2; margin-top: 30px; max-width: 300px;}
+    .home-content h1 { font-size: 3rem; }
+    .home-content h1 span { font-size: 3.5rem; }
+    .home-content h3 { font-size: 1.3rem; }
+    .contact-container {
+        grid-template-columns: 1fr; /* Stack columns */
+        gap: 30px; /* Reduce gap when stacked */
+     }
+    .contact-info {
+        margin-bottom: 0; /* Remove extra margin */
+        text-align: center;
+    }
+    .contact-info .social-icons { justify-content: center; }
+    .whatsapp-contact { margin-top: 20px; }
+}
+
+/* Smaller Phones */
+@media (max-width: 768px) {
+    #header { padding: 15px 5%; }
+    #menu-icon { display: block; }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white-color);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.4s ease;
+    }
+    .navbar.active {
+         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .navbar a {
+        display: block;
+        margin: 15px 0;
+        padding: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .home { padding-top: 120px;} /* Adjust hero padding */
+    .home-content h1 { font-size: 2.5rem; }
+    .home-content h1 span { font-size: 3rem; }
+    .home-content h3 { font-size: 1.1rem; }
+    .section-title { font-size: 2rem; }
+    .card-container { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .logo-img { max-width: 250px; }
+    .whatsapp-btn { padding: 12px 30px; font-size: 1rem;}
+    .whatsapp-btn i { font-size: 1.3rem;}
+    .contact-container { grid-template-columns: 1fr; } /* Ensure stacking */
+
+}
+
+@media (max-width: 480px) {
+    html { font-size: 14px; }
+    section { padding: 50px 3%; }
+    #header { padding: 15px 3%; }
+    .logo { font-size: 1.5rem; }
+    .home { padding-top: 100px;} /* Adjust hero padding */
+    .home-content h1 { font-size: 2.2rem; }
+    .home-content h1 span { font-size: 2.5rem; }
+    .btn { padding: 10px 25px; font-size: 0.9rem;}
+    .card-container { grid-template-columns: 1fr; }
+    .logo-img { max-width: 200px; }
+    .whatsapp-btn { padding: 10px 25px; font-size: 0.9rem;}
+    .whatsapp-btn i { font-size: 1.2rem;}
+}
